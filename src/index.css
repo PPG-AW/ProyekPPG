@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #f7f0e1;
+  --color-paper2: #efe4cc;
+  --color-cream: #fbf7ec;
+  --color-ink: #26221b;
+  --color-inksoft: #6b6252;
+  --color-line: #d9cdb4;
+  --color-wood: #ddb987;
+  --color-wood2: #c29356;
+
+  --color-capred: #e5484d;
+  --color-capblue: #3b82f6;
+  --color-capyellow: #f2b705;
+  --color-capgreen: #22a06b;
+  --color-cappurple: #8b5cf6;
+  --color-caporange: #f0762b;
+}
+
+html,
+body {
+  background: var(--color-paper);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(242, 183, 5, 0.45);
+}
+
+input,
+textarea,
+button,
+select {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper2);
+}
+::-webkit-scrollbar-thumb {
+  background: #c9b794;
+  border-radius: 999px;
+  border: 2px solid var(--color-paper2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b39e77;
+}
+
+/* ---------- dekorasi kertas & pola ---------- */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(38, 34, 27, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(38, 34, 27, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(38, 34, 27, 0.11) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+.bg-halftone {
+  background-image: radial-gradient(rgba(38, 34, 27, 0.16) 1.4px, transparent 1.5px);
+  background-size: 12px 12px;
+}
+
+.rule-dash {
+  border-top: 2px dashed var(--color-line);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ---------- selotip kertas ---------- */
+.tape {
+  position: relative;
+}
+.tape::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 96px;
+  height: 26px;
+  transform: translateX(-50%) rotate(-3deg);
+  background: linear-gradient(180deg, rgba(242, 183, 5, 0.5), rgba(242, 183, 5, 0.34));
+  border-left: 2px dashed rgba(38, 34, 27, 0.28);
+  border-right: 2px dashed rgba(38, 34, 27, 0.28);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(38, 34, 27, 0.12);
+  pointer-events: none;
+}
+.tape-alt::before {
+  transform: translateX(-50%) rotate(4deg);
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.32), rgba(59, 130, 246, 0.22));
+}
+
+/* ---------- bayangan offset khas poster ---------- */
+.hard-shadow {
+  box-shadow: 6px 6px 0 var(--color-ink);
+}
+.hard-shadow-sm {
+  box-shadow: 4px 4px 0 var(--color-ink);
+}
+
+/* ---------- animasi kecil ---------- */
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+.pulse-soft {
+  animation: pulse-soft 1.8s ease-in-out infinite;
+}
+
+@keyframes wiggle-hint {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+.wiggle-hint {
+  animation: wiggle-hint 1.4s ease-in-out infinite;
+}
